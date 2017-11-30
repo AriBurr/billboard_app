@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1><%= @billboard.id? ? 'Edit' : 'Create' %></h1>
+
+  <%= form_for @billboard do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+
+  <% if @billboard.id? %>
+    <%= link_to 'Cancel', billboard_path(@billboard) %>
+  <% else %>
+    <%= link_to 'Cancel', billboards_path %>
+  <% end %>
+  
+</div>

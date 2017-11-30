@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h1><%= @billboard.name %></h1>
+  <%= link_to 'Back', billboards_path, class: 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_billboard_path, class: 'btn btn-info' %>
+  <%= link_to 'Delete Billboard', billboard_path(@billboard), method: :delete,
+                                                              data: { confirm: 'Are you sure?'},
+                                                              class: 'btn btn-danger' %>
+  <hr>
+
+  <ul>
+    <li>Song 1</li>
+    <li>Song 2</li>
+    <li>Song 3</li>
+    <li>Song 4</li>
+    <li>Song 5</li>
+  </ul>
+
+  <hr>
+
+  <%= link_to 'View Artists', artists_path %>
+
+</div>
