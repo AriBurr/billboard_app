@@ -5,8 +5,6 @@
   <%= form_for [@artist, @song] do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title, required: true %>
-    <%= f.label :rank %>
-    <%= f.number_field :rank, required: true %>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
 

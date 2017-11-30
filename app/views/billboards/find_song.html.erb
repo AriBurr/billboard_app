@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>All Songs</h1>
+  <hr>
+  <% @songs.each do |song| %>
+  <p><%= link_to song.title, add_song_path(@billboard, song), method: :patch%></p>
+  <% end %>
+</div>

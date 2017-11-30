@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20171129224944) do
   enable_extension "plpgsql"
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.string "genre"
+    t.string "name", null: false
+    t.string "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20171129224944) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.integer "rank", null: false
     t.string "title", null: false
     t.bigint "artist_id"
     t.bigint "billboard_id"
