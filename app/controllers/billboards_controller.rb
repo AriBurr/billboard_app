@@ -50,7 +50,6 @@ class BillboardsController < ApplicationController
   end
 
   def remove_song
-    @billboard = Billboard.find(params[:id])
     @song = Song.find(params[:song_id])
     @song.update(billboard_id: nil)
     redirect_to billboard_path(@billboard)
