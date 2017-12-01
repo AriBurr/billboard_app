@@ -14,12 +14,14 @@
               <div class="header">
                 Track:
               </div>
-              <div class="description">
-                <%= song.title %>
+              <div class="ui center aligned">
+                <p><%= song.title %><strong> by </strong>
+                <br>
+                &ensp;&ensp;<%= song.artist.name %></p>
               </div>
             </div>
             <div class="extra content">
-              <%= link_to 'Add to Billboard', add_song_path(@billboard, song), method: :patch, class: 'ui orange button' %>
+              <%= link_to 'Add to Billboard', add_song_path(@billboard, song), method: :patch, class: 'ui green button' %>
             </div>
           </div>
         <% end %>

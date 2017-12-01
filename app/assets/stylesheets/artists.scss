@@ -1,5 +1,11 @@
 #artist-info {
-  background-color: rgba(241, 143, 1, .5);
+  background:
+    linear-gradient(
+    rgba(6, 214, 160, .75),
+    rgba(6, 214, 160, .5)
+    ),
+    url("artist-background.png") no-repeat center;
+  background-size: cover;
   color: white;
   padding: 5%;
 }

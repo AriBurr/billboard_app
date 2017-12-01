@@ -8,15 +8,15 @@
     <table class="ui striped celled table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>No. of Songs</th>
+          <th class="center aligned">Name</th>
+          <th class="center aligned">No. of Songs</th>
         </tr>
       </thead>
       <tbody>
         <% @billboards.each do |billboard| %>
         <tr>
-          <td><strong><%= link_to billboard.name, billboard_path(billboard.id), class: 'ui teal basic button' %></strong></td>
-          <td></td>
+          <td class="center aligned"><strong><%= link_to billboard.name, billboard_path(billboard.id), class: 'ui teal basic button' %></strong></td>
+          <td class="center aligned"><%= billboard.songs.count %></td>
         </tr>
         <% end %>
       </tbody>

@@ -4,10 +4,10 @@
 
   <h1><%= @billboard.name %>&ensp;
 
+  <%= link_to 'Back', billboards_path, class: 'ui black basic button' %>
   <%= link_to 'Edit', edit_billboard_path, class: 'ui violet basic button' %>
   <%= link_to 'Delete Billboard', billboard_path(@billboard), method: :delete,
                                                               data: { confirm: 'Are you sure?'},
-
                                                               class: 'ui red basic button' %></h1>
   <div class="ui divider"></div>
 
@@ -23,8 +23,10 @@
                 <div class="header">
                   Track:
                 </div>
-                <div class="description">
-                  <%= song.title %>
+                <div class="ui center aligned">
+                  <p><%= song.title %><strong> by </strong>
+                  <br>
+                  &ensp;&ensp;<%= song.artist.name %></p>
                 </div>
               </div>
               <div class="extra content">
