@@ -1,17 +1,26 @@
-<div class="container">
+<%= render 'shared/nav' %>
+
+<div class="ui container">
 
   <h1><%= @billboard.id? ? 'Edit' : 'Create' %></h1>
+  <div class="ui divider"></div>
 
-  <%= form_for @billboard do |f| %>
-    <%= f.label :name %>
+  <%= form_for @billboard, class: 'ui form' do |f| %>
+  <div class="field">
+    <p><strong><%= f.label :name %></strong></p>
     <%= f.text_field :name, required: true %>
-    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+  <div class="ui hidden divider"></div>
+  <div class="action">
+    <%= f.submit class: 'ui violet basic button' %>
+  </div>
+  <div class="ui hidden divider"></div>
   <% end %>
 
   <% if @billboard.id? %>
-    <%= link_to 'Cancel', billboard_path(@billboard) %>
+    <%= link_to 'Cancel', billboard_path(@billboard), class: 'ui red basic button' %>
   <% else %>
-    <%= link_to 'Cancel', billboards_path %>
+    <%= link_to 'Cancel', billboards_path, class: 'ui red basic button' %>
   <% end %>
-  
+
 </div>

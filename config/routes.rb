@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'billboards#index'
+  root 'static_pages#home'
 
   resources :billboards
 

@@ -1,17 +1,26 @@
-<div class="container">
+<%= render 'shared/nav' %>
+
+<div class="ui container">
 
   <h1><%= @song.id? ? 'Edit' : 'Create' %></h1>
+  <div class="ui divider"></div>
 
-  <%= form_for [@artist, @song] do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, required: true %>
-    <%= f.submit class: 'btn btn-primary' %>
+  <%= form_for [@artist, @song], class: 'ui form' do |f| %>
+    <div class="field">
+      <p><strong><%= f.label :title %></strong></p>
+      <%= f.text_field :title, required: true %>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="action">
+      <%= f.submit class: 'ui violet basic button' %>
+    </div>
+    <div class="ui hidden divider"></div>
   <% end %>
 
   <% if @song.id? %>
-    <%= link_to 'Cancel', artist_path(@song) %>
+    <%= link_to 'Cancel', artist_path(@song), class: 'ui red basic button' %>
   <% else %>
-    <%= link_to 'Cancel', artists_path %>
+    <%= link_to 'Cancel', artists_path, class: 'ui red basic button' %>
   <% end %>
 
 </div>

@@ -1,14 +1,25 @@
-<div class="container">
+<%= render 'shared/nav' %>
 
-  <h1>Billboard Charts</h1>
-  
-  <% if @billboards.any? %>
-    <% @billboards.each do |billboard| %>
-    <%= link_to billboard.name, billboard_path(billboard.id) %>
-    <hr>
-    <% end %>
-  <% end %>
+<div class="ui container">
 
-  <%= link_to 'Create New Billboard', new_billboard_path, class: 'btn btn-primary' %>
+  <h1>Billboard Charts&ensp;<%= link_to 'Create New Billboard', new_billboard_path, class: 'ui green button' %></h1>
+  <div class="ui divider"></div>
+
+    <table class="ui striped celled table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>No. of Songs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @billboards.each do |billboard| %>
+        <tr>
+          <td><strong><%= link_to billboard.name, billboard_path(billboard.id), class: 'ui teal basic button' %></strong></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 </div>

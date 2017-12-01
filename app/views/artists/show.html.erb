@@ -1,21 +1,33 @@
-<div class="container">
+<%= render 'shared/nav' %>
 
-  <h1>Name: <%= @artist.name %></h1>
-  <h2>Genre: <%= @artist.genre %></h2>
+<div class="ui container">
 
-  <% @artist.songs.each do |song| %>
-    <p>
-      Title: <%= song.title %>
-    </p>
+  <h1>Artist Profile</h1>
+
+  <div id="artist-info">
+    <h2>Name:&ensp;<%= @artist.name %></h2>
+    <h3>Genre:&ensp;<%= @artist.genre %></h3>
+  </div>
+
+  <h4>Song List</h4>
+  <div class="ui divider"></div>
+
+  <% if @artist.songs.any? %>
+    <% @artist.songs.each do |song| %>
+      <p>
+        Title: <%= song.title %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>This artist has no songs to display.</p>
   <% end %>
 
-  <%= link_to 'Add Song', new_artist_song_path(@artist) %>
+  <div class="ui divider"></div>
 
-  <hr>
+  <%= link_to 'Add Song', new_artist_song_path(@artist), class: 'ui violet basic button' %>
 
-  <%= link_to 'Back', artists_path, class: 'btn btn-primary' %>
-  <%= link_to 'Edit', edit_artist_path, class: 'btn btn-info' %>
+  <%= link_to 'Edit', edit_artist_path, class: 'ui yellow basic button' %>
   <%= link_to 'Delete Artist', artist_path(@artist), method: :delete,
-                                                              data: { confirm: 'Are you sure?'},
-                                                              class: 'btn btn-danger' %>
+                                                     data: { confirm: 'Are you sure?'},
+                                                     class: 'ui red basic button' %>
 </div>

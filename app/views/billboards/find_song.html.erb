@@ -1,7 +1,30 @@
-<div class="container">
-  <h1>All Songs</h1>
-  <hr>
-  <% @songs.each do |song| %>
-  <p><%= link_to song.title, add_song_path(@billboard, song), method: :patch%></p>
-  <% end %>
+<%= render 'shared/nav' %>
+
+<div class="ui container">
+
+  <h2>All Songs&ensp;<%= link_to 'Back', billboard_path(@billboard), class: 'ui black basic button' %></h2>
+  <div class="ui divider hidden"></div>
+
+  <div class="ui grid">
+    <div class "sixteen wide computer column">
+      <div class="ui cards">
+        <% @songs.each do |song| %>
+          <div class="card">
+            <div class="content">
+              <div class="header">
+                Track:
+              </div>
+              <div class="description">
+                <%= song.title %>
+              </div>
+            </div>
+            <div class="extra content">
+              <%= link_to 'Add to Billboard', add_song_path(@billboard, song), method: :patch, class: 'ui orange button' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>

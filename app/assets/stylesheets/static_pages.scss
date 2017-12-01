@@ -1,0 +1,25 @@
+#landing-image {
+  background:
+    linear-gradient(
+    rgba(241, 143, 1, .25),
+    rgba(241, 143, 1, .25)
+    ),
+    url("landing.png") no-repeat center;
+  background-size: cover;
+  color: white;
+  height: 100%;
+  letter-spacing: 5px;
+  max-width: 100%;
+  padding: 20%;
+    h1 {
+      color: inherit;
+      font-size: 4em;
+      letter-spacing: inherit;
+    }
+    h2 {
+      background-color: rgba(26, 29, 30, .5);
+      color: inherit;
+      letter-spacing: inherit;
+      padding: 3%;
+    }
+}

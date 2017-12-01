@@ -1,25 +1,31 @@
-<div class="container">
+<%= render 'shared/nav' %>
+
+<div class="ui container">
 
   <h1><%= @artist.id? ? 'Edit' : 'Create' %></h1>
+  <div class="ui divider"></div>
 
-  <%= form_for @artist do |f| %>
-    <div class="form-group row">
-      <div class="col-xs-4">
-        <%= f.label :name %>
-        <%= f.text_field :name, required: true %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.label :genre %>
-        <%= f.text_field :genre, required: true %>
-      </div>
-    </div>
-    <%= f.submit class: 'btn btn-primary' %>
+  <%= form_for @artist, class: 'ui form' do |f| %>
+  <div class="field">
+    <p><strong><%= f.label :name %><strong></p>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div class="ui hidden divider"></div>
+  <div class="field">
+    <p><strong><%= f.label :genre %></strong><p>
+    <%= f.text_field :genre, required: true %>
+  </div>
+  <div class="ui hidden divider"></div>
+  <div class="action">
+    <%= f.submit class: 'ui violet basic button' %>
+  </div>
+  <div class="ui hidden divider"></div>
   <% end %>
 
   <% if @artist.id? %>
-    <%= link_to 'Cancel', artist_path(@artist) %>
+  <%= link_to 'Cancel', artist_path(@artist), class: 'ui red basic button' %>
   <% else %>
-    <%= link_to 'Cancel', artists_path %>
+  <%= link_to 'Cancel', artists_path, class: 'ui red basic button' %>
   <% end %>
 
 </div>

@@ -10,11 +10,9 @@ class BillboardsController < ApplicationController
 
   def new
     @billboard = Billboard.new
-    render partial: 'form'
   end
 
   def edit
-    render partial: 'form'
   end
 
   def create

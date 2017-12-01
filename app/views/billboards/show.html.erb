@@ -1,24 +1,39 @@
-<div class="container">
+<%= render 'shared/nav' %>
 
-  <h1><%= @billboard.name %></h1>
-  <%= link_to 'Back', billboards_path, class: 'btn btn-primary' %>
-  <%= link_to 'Edit', edit_billboard_path, class: 'btn btn-info' %>
+<div class="ui container">
+
+  <h1><%= @billboard.name %>&ensp;
+
+  <%= link_to 'Edit', edit_billboard_path, class: 'ui violet basic button' %>
   <%= link_to 'Delete Billboard', billboard_path(@billboard), method: :delete,
                                                               data: { confirm: 'Are you sure?'},
-                                                              class: 'btn btn-danger' %>
-  <hr>
 
-  <h1>All Songs</h1>
-  <% @billboard.songs.each do |song| %>
-    <p>
-      Title: <%= song.title %> <%= link_to 'REMOVE', remove_song_path(@billboard, song), method: :patch %>
-    </p>
-  <% end %>
+                                                              class: 'ui red basic button' %></h1>
+  <div class="ui divider"></div>
 
-  <%= link_to 'Add Song to Billboard', find_song_path %>
+    <h2>Hit Songs&ensp;<%= link_to 'Add Song to Billboard', find_song_path, class: 'ui green button' %></h2>
+    <div class="ui divider hidden"></div>
 
-  <hr>
-
-  <%= link_to 'View Artists', artists_path %>
+    <div class="ui grid">
+      <div class "sixteen wide computer column">
+        <div class="ui cards">
+          <% @billboard.songs.each do |song| %>
+            <div class="card">
+              <div class="content">
+                <div class="header">
+                  Track:
+                </div>
+                <div class="description">
+                  <%= song.title %>
+                </div>
+              </div>
+              <div class="extra content">
+                <%= link_to 'Remove from Billboard', remove_song_path(@billboard, song), method: :patch, class: 'ui orange button' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
 </div>

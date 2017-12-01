@@ -3,7 +3,6 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    render partial: 'form'
   end
 
   def create
@@ -16,7 +15,6 @@ class SongsController < ApplicationController
   end
 
   def edit
-    render partial: 'form'
   end
 
   def update
